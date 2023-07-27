@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'everythingFrontend';
+  displayButton: boolean = false;
   data: any = [];
   constructor(private http: HttpClient) { }
 
@@ -18,7 +19,7 @@ export class AppComponent implements OnInit {
   getData() {
     this.http.get<any>('http://localhost:9090/Jobs').subscribe(data => {
       this.data = data;
-      console.log(this.data);
+      this.displayButton = !this.displayButton;
     });
   }
 }

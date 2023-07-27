@@ -1,2 +1,5 @@
 <h1> Hello Everyone </h1>
 <button (click)="getData()"> Get Me data Please. </button>
+<div class="datadiv" *ngIf="displayButton"> 
+    <span> {{data[0].restaurant}} </span>
+</div>
