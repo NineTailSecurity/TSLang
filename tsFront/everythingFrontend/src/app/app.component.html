@@ -1,5 +1,14 @@
 <h1> Hello Everyone </h1>
 <button (click)="getData()"> Get Me data Please. </button>
 <div class="datadiv" *ngIf="displayButton"> 
-    <span> {{data[0].restaurant}} </span>
+    <table>
+        <thead>
+            <th>Name</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let info of data">
+                <td>{{info.restaurant}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
