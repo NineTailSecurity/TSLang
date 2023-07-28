@@ -70,3 +70,16 @@ func ModifyJob(context *gin.Context) {
 	job.Good = !job.Good
 	context.IndentedJSON(http.StatusOK, job)
 }
+
+// Not Implemeneted
+func DeleteJob(context *gin.Context) {
+	id := context.Param("id")
+	job, err := GetJobById(id)
+
+	if err != nil {
+		context.IndentedJSON(http.StatusNotFound, gin.H{"message": "Job Not Found."})
+		return
+	}
+
+	context.IndentedJSON(http.StatusOK, job)
+}
