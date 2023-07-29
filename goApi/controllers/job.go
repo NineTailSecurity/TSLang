@@ -71,7 +71,6 @@ func ModifyJob(context *gin.Context) {
 	context.IndentedJSON(http.StatusOK, job)
 }
 
-// Not Implemeneted
 func DeleteJob(context *gin.Context) {
 	id := context.Param("id")
 	job, err := GetJobById(id)
@@ -81,5 +80,18 @@ func DeleteJob(context *gin.Context) {
 		return
 	}
 
+	index := indexOf(id, []string{"1", "2", "3", "4"})
+
+	Jobs = append(Jobs[:index], Jobs[index+1:]...)
 	context.IndentedJSON(http.StatusOK, job)
+}
+
+// Get the Index of an Element
+func indexOf(element string, data []string) int {
+	for k, v := range data {
+		if element == v {
+			return k
+		}
+	}
+	return -1 //not found.
 }

@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   displayButton: boolean = false;
   data: any = [];
   specificData: any = [];
+  undeletedData: any = [];
   inputId: number =  0;
   constructor(private http: HttpClient) { }
 
@@ -33,8 +34,11 @@ export class AppComponent implements OnInit {
     // Not Implemeted
   }
 
-  deleteData() {
-    // Not Implemeted
+  deleteData(id: number) {
+    this.http.delete<any>('http://localhost:9090/Jobs/' + id).subscribe(data => {
+      this.undeletedData = data;
+      console.log(this.undeletedData);
+    });
   }
 
   getSpecificData(id: number) {
