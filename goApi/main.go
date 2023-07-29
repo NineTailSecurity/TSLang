@@ -1,7 +1,7 @@
 package main
 
 import (
-	"go-api/controllers"
+	"goApi/controllers"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -34,10 +34,10 @@ func main() {
 	router.Use(CORS)
 
 	router.GET("/Jobs", controllers.GetJobs)
-	router.GET("/Jobs/:id", controllers.GetJob)
-	router.PATCH("/Jobs/:id", controllers.ModifyJob)
-	router.POST("/Jobs", controllers.AddJob)
-	router.DELETE("/Jobs/:id", controllers.DeleteJob)
+	router.GET("/Job/:id", controllers.GetJob)
+	router.PATCH("/modifyJob/:id", controllers.ModifyJob)
+	router.POST("/addJob", controllers.AddJob)
+	router.DELETE("/deleteJob/:id", controllers.DeleteJob)
 
 	router.Run("localhost:9090")
 }

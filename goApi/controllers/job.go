@@ -81,7 +81,6 @@ func DeleteJob(context *gin.Context) {
 	}
 
 	index := indexOf(id, []string{"1", "2", "3", "4"})
-
 	Jobs = append(Jobs[:index], Jobs[index+1:]...)
 	context.IndentedJSON(http.StatusOK, job)
 }

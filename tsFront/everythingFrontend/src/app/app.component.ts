@@ -35,14 +35,14 @@ export class AppComponent implements OnInit {
   }
 
   deleteData(id: number) {
-    this.http.delete<any>('http://localhost:9090/Jobs/' + id).subscribe(data => {
+    this.http.delete<any>('http://localhost:9090/deleteJob/' + id).subscribe(data => {
       this.undeletedData = data;
       console.log(this.undeletedData);
     });
   }
 
   getSpecificData(id: number) {
-    this.http.get<any>('http://localhost:9090/Jobs/' + id).subscribe(data => {
+    this.http.get<any>('http://localhost:9090/Job/' + id).subscribe(data => {
       this.specificData = data;
       console.log(this.specificData);
     });

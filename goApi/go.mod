@@ -1,4 +1,4 @@
-module e/git/go-api
+module goApi
 
 go 1.20
 
