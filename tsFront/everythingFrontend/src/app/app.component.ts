@@ -12,7 +12,9 @@ export class AppComponent implements OnInit {
   data: any = [];
   specificData: any = [];
   undeletedData: any = [];
+  updatedData: any = [];
   inputId: number =  0;
+  dummyData: string = '';
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -30,8 +32,11 @@ export class AppComponent implements OnInit {
     // Not Implemeted
   }
 
-  updateData() {
-    // Not Implemeted
+  updateData(id: number, dummyData: string) {
+    this.http.patch<any>('http://localhost:9090/modifyJob/' + id, dummyData).subscribe(data => {
+      this.updatedData = data;
+      console.log(this.updatedData);
+    });
   }
 
   deleteData(id: number) {
